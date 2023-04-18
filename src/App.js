@@ -1,58 +1,23 @@
 // Componentes
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import Routes from "./routes/Routes";
+import React from 'react';
+import LoginButton from './components/LoginButton/LoginButton';
+import LogoutButton from './components/LogoutButton/LogoutButton';
+import Profile from './components/Profile/Profile';
 
-// Context
-import AuthApi from './AuthApi';
+import { useAuth0 } from '@auth0/auth0-react';
 
-// Services
-import serviceUser from "./services/user";
 
 function App() {
-  const [auth, setAuth] = useState(false);
-  const [role, setRole] = useState('');
+  
+  const {isAuthenticated, isLoading } = useAuth0()
 
-  const GetCookieSession = () => {
-
-    const lala = serviceUser.GetUserById(1)
-      .then((response) => {
-        let user = response.data;
-        // const user = {
-        //   Id: 1,
-        //   fullName: "Jose Jose",
-        //   typeUser: 1
-        // }
-      })
-      .catch((err) => {
-        console.log(err)
-      });
-
-    const user = {
-      Id: 1,
-      fullName: "Jose Jose",
-      typeUser: 1
-    }
-    if (user) {
-      setAuth(true);
-      setRole(user.typeUser);
-    }
-    else {
-      setAuth(false);
-    }
-  }
-
-  useEffect(() => {
-    GetCookieSession();
-  });
+  if(isLoading) return <h1> Loading...</h1>
 
   return (
-    <div className="App vh-100 d-flex">
-      <AuthApi.Provider value={{ auth, setAuth, role, setRole }}>
-        <BrowserRouter>
-          <Routes />
-        </BrowserRouter>
-      </AuthApi.Provider>
+    <div className="App">
+      <h1>APP</h1>
+      { isAuthenticated ? <LogoutButton/>: <LoginButton/>}
+      <Profile/>
     </div>
   );
 }

@@ -10,9 +10,6 @@ export const PrivateRouteAnonymus = ({auth, role, component: Component, ...rest}
                     if(role === 1){
                         return(<Component />)
                     }
-                    else{
-                        
-                    }
                 }
                 else{
                     return(<Redirect to={publicRoutes.login}/>)

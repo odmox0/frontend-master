@@ -4,8 +4,7 @@ import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Rutas
-import { anonymous } from "../routes/AllRoutes";
-import { userExist } from "../routes/AllRoutes";
+import { anonymous, userExist } from "../routes/AllRoutes";
 
 // Context
 import AuthApi from '../AuthApi';

@@ -1,7 +1,7 @@
 import axios from "axios";
 import urlGlobal from "../routes/BaseUrl";
 
-var baseURL = urlGlobal.url;
+let baseURL = urlGlobal.url;
 
 axios.defaults.withCredentials = true;
 

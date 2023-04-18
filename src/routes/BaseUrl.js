@@ -1,4 +1,4 @@
-var urlGlobal = {
+const urlGlobal = {
     url: "http://domain-from-backend"
 }
 

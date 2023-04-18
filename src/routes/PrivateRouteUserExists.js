@@ -10,9 +10,6 @@ export const PrivateRouteUserExists = ({auth, role, component: Component, ...res
                     if(role === 2){
                         return(<Component />)
                     }
-                    else{
-                        
-                    }
                 }
                 else{
                     return(<Redirect to={publicRoutes.login}/>)
