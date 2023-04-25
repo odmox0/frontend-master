@@ -1,6 +1,8 @@
 import { React, useState } from 'react';
 import {  Button, Layout, Menu, theme  } from 'antd';
-import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import { MenuFoldOutlined, MenuUnfoldOutlined, PicCenterOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
+
+const { Header, Sider, Content } = Layout;
 
 const General = (props) => {
   const { Header, Sider, Content } = Layout;
@@ -14,6 +16,7 @@ const General = (props) => {
       <Layout>
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <div className="logo" />
+          
           <Menu
             theme="dark"
             mode="inline"
@@ -22,26 +25,28 @@ const General = (props) => {
               {
                 key: '1',
                 icon: <UserOutlined />,
-                label: 'nav 1',
+                label: 'Profile',
               },
               {
                 key: '2',
                 icon: <VideoCameraOutlined />,
-                label: 'nav 2',
+                label: 'Services',
               },
               {
                 key: '3',
                 icon: <UploadOutlined />,
-                label: 'nav 3',
+                label: 'Map',
               },
             ]}
           />
         </Sider>
         <Layout>
+          
           <Header
-            style={{
+            Content style={{
               padding: 0,
               background: colorBgContainer,
+              position: PicCenterOutlined,
             }}
           >
             <Button
@@ -50,23 +55,27 @@ const General = (props) => {
               onClick={() => setCollapsed(!collapsed)}
               style={{
                 fontSize: '16px',
-                width: 64,
-                height: 64,
+                width: 60,
+                height:64,
               }}
             />
           </Header>
+          
           <Content
             style={{
-              margin: '24px 16px',
-              padding: 24,
-              minHeight: 280,
+              margin: '32px',
+              height: '163px',
+              padding: 10,
+              minHeight: 160,
               background: colorBgContainer,
             }}
           >
-            {props.children}
+             {props.children}
           </Content>
         </Layout>
       </Layout>
+      
     );
 };
 export default General;
+

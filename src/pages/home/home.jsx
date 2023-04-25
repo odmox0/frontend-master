@@ -3,7 +3,7 @@ import General from "../../layout/general/general"
 const Home = () => {
     return (
         <General>
-            Home oscar
+            Welcome
         </General>
     )
 }
