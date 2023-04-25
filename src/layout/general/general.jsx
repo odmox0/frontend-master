@@ -1,10 +1,13 @@
 import { React, useState } from 'react';
 import {  Button, Layout, Menu, theme  } from 'antd';
-import { MenuFoldOutlined, MenuUnfoldOutlined, PicCenterOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import { LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, PicCenterOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import { useAuth0 } from '@auth0/auth0-react'
 
 const { Header, Sider, Content } = Layout;
 
 const General = (props) => {
+  const  { logout } = useAuth0();
+
   const { Header, Sider, Content } = Layout;
 
   const [collapsed, setCollapsed] = useState(false);
@@ -53,6 +56,16 @@ const General = (props) => {
               type="text"
               icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
               onClick={() => setCollapsed(!collapsed)}
+              style={{
+                fontSize: '16px',
+                width: 60,
+                height:64,
+              }}
+            />
+            <Button
+              type="text"
+              icon= {<LogoutOutlined />}
+              onClick={()=>logout()}
               style={{
                 fontSize: '16px',
                 width: 60,
