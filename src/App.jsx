@@ -11,15 +11,12 @@ const App= () => {
   
   const {isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
   
-  useEffect(() => {
-    console.log('effect')
-    if(!isAuthenticated && !isLoading){
-      loginWithRedirect();
-    }
-  },[isAuthenticated])
+ 
   
   if(isLoading){return <h1>Loading...</h1>}
-
+  if(!isAuthenticated && !isLoading){
+    loginWithRedirect();
+  }
   return (
     <Routes>
       <Route path="/" element={<Home/>}/>
