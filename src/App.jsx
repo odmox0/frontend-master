@@ -1,22 +1,16 @@
-import LoginButton from './components/LoginButton/LoginButton';
-import LogoutButton from './components/LogoutButton/LogoutButton';
-import Profile from './components/Profile/Profile';
-import { useAuth0 } from '@auth0/auth0-react';
 
+import Home from './pages/home/home';
+import Profile from './pages/profile/profile';
+import { Route, Routes } from 'react-router';
 import './App.css'
 
-function App() {
 
-  const {isAuthenticated, isLoading } = useAuth0()
-
-  if(isLoading) return <h1> Loading...</h1>
-  
+const App= () => {
   return (
-    <div className="App">
-      <h1>APP</h1>
-      { isAuthenticated ? <LogoutButton/>: <LoginButton/>}
-      <Profile/>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/profile" element={<Profile/>}/>
+    </Routes>
   )
 }
 export default App
