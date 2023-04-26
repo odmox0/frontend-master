@@ -19,7 +19,26 @@ const General = (props) => {
       <Layout>
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <div className="logo" />
-          
+          <Button
+              type="text"
+              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+              onClick={() => setCollapsed(!collapsed)}
+              style={{
+                fontSize: '16px',
+                width: 60,
+                height:64,
+              }}
+            />
+            <Button
+              type="text"
+              icon= {<LogoutOutlined />}
+              onClick={()=>logout()}
+              style={{
+                fontSize: '16px',
+                width: 60,
+                height:64,
+              }}
+            />
           <Menu
             theme="dark"
             mode="inline"
@@ -52,26 +71,7 @@ const General = (props) => {
               position: PicCenterOutlined,
             }}
           >
-            <Button
-              type="text"
-              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-              onClick={() => setCollapsed(!collapsed)}
-              style={{
-                fontSize: '16px',
-                width: 60,
-                height:64,
-              }}
-            />
-            <Button
-              type="text"
-              icon= {<LogoutOutlined />}
-              onClick={()=>logout()}
-              style={{
-                fontSize: '16px',
-                width: 60,
-                height:64,
-              }}
-            />
+            
           </Header>
           
           <Content
