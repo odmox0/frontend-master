@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
 import General from "../../layout/general/general"
-import { Button, message, Steps, theme, Row, Col } from 'antd';
+import { Link } from 'react-router-dom';
+import { Button, message, Steps, Row, Col } from 'antd';
 
 const Profile = () =>  {
-    const { token } = theme.useToken();
     const [current, setCurrent] = useState(0);
 
     const steps = [
@@ -34,7 +34,7 @@ const Profile = () =>  {
         <General>
             
             <Row>
-                <Col span={24}> Profile </Col>
+                <Col span={24}> </Col>
             </Row>
             <Row>
                 <Col span={24}>
